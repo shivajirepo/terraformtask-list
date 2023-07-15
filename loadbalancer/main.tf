@@ -70,17 +70,17 @@ resource "aws_security_group" "terraformlb" {
   vpc_id      = aws_vpc.lb_vpc.id
   description = "allow all ports"
   ingress {
-    from_port   = 0
-    to_port     = 0
+    from_port   = 80
+    to_port     = 80
     cidr_blocks = ["0.0.0.0/0"]
     protocol    = "tcp"
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
+    from_port   = 80
+    to_port     = 80
     cidr_blocks = ["0.0.0.0/0"]
-    protocol    = "-1"
+    protocol    = "tcp"
   }
 
   depends_on = [
